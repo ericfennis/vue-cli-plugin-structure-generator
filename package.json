@@ -1,0 +1,26 @@
+{
+  "name": "vue-cli-plugin-structure-generator",
+  "description": "Vue CLI Structure ADD-ON to generate Components, views, stores, directives, filters and mixins",
+  "author": "Eric Fennis <ericfennis>",
+  "license": "MIT",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericfennis/vue-cli-plugin-structure-generator.git"
+  },
+  "keywords": [
+    "vue",
+    "cli",
+    "structure",
+    "starter",
+    "template"
+  ],
+  "bugs": {
+    "url": "https://github.com/ericfennis/vue-cli-plugin-structure-generator/issues"
+  },
+  "homepage": "https://github.com/ericfennis/vue-cli-plugin-structure-generator#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}
