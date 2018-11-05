@@ -3,7 +3,7 @@ const questions = [
     type: 'list',
     name: 'type',
     message: 'What do you want to generate?',
-    choises: [
+    choices: [
       {
         name: 'Component',
         value: 'component'
@@ -32,51 +32,52 @@ const questions = [
   },
   {
     type: 'input',
-    name: '',
+    name: 'name',
     message: 'Name for the component?',
+    description: 'Name for the component, this name will also apply for the file names and imports. It will follow the naming convention of Vue and JavaScript',
     group: 'component',
     validate: input => !!input,
-    when: answers => answers.type.value === 'component',
+    when: answers => answers.type === 'component',
   },
   {
     type: 'input',
-    name: '',
+    name: 'name',
     message: 'Name for the view?',
     group: 'view',
     validate: input => !!input,
-    when: answers => answers.type.value === 'view',
+    when: answers => answers.type === 'view',
   },
   {
     type: 'input',
-    name: '',
+    name: 'name',
     message: 'Name for the store?',
     group: 'store',
     validate: input => !!input,
-    when: answers => answers.type.value === 'store',
+    when: answers => answers.type === 'store',
   },
   {
     type: 'input',
-    name: '',
+    name: 'name',
     message: 'Name for the mixin?',
     group: 'mixin',
     validate: input => !!input,
-    when: answers => answers.type.value === 'mixin',
+    when: answers => answers.type === 'mixin',
   },
   {
     type: 'input',
-    name: '',
+    name: 'name',
     message: 'Name for the directive?',
     group: 'directive',
     validate: input => !!input,
-    when: answers => answers.type.value === 'directive',
+    when: answers => answers.type === 'directive',
   },
   {
     type: 'input',
-    name: '',
+    name: 'name',
     message: 'Name for the filter?',
     group: 'filter',
     validate: input => !!input,
-    when: answers => answers.type.value === 'filter',
+    when: answers => answers.type === 'filter',
   },
 ]
 
