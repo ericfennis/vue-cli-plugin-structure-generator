@@ -10,6 +10,6 @@ module.exports = (api, options, rootOptions, opts) => {
   }
 
   if (options.type === 'component') {
-    require('./component')(api, options)
+    require('./component')(api, options, rootOptions)
   }
 }
