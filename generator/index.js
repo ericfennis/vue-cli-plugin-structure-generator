@@ -1,6 +1,5 @@
 module.exports = (api, options, rootOptions, opts) => {
-  
-  console.log(options);
+
   if(api.invoking) {
     api.extendPackage({
       scripts: {
@@ -9,7 +8,10 @@ module.exports = (api, options, rootOptions, opts) => {
     })
   }
 
-  if (options.type === 'component') {
+  if (options.type === 'component' || options.component) {
+    if(options.component) {
+      options.name = options.component;
+    }
     require('./component')(api, options, rootOptions)
   }
 }
