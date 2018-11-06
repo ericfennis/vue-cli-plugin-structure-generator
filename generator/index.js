@@ -14,4 +14,11 @@ module.exports = (api, options, rootOptions, opts) => {
     }
     require('./component')(api, options, rootOptions)
   }
+
+  if (options.type === 'view' || options.view) {
+    if(options.view) {
+      options.name = options.view;
+    }
+    require('./view')(api, options, rootOptions)
+  }
 }

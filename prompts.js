@@ -1,3 +1,11 @@
+const toKebabCase = String => String
+  .replace(/(?<!^)([A-Z][a-z]|(?<=[a-z])[A-Z])/g, '-$1')
+  .toLowerCase()
+
+const toTitleCase = String => String
+.replace(/(?<!^)([A-Z][a-z]|(?<=[a-z])[A-Z])/g, ' $1')
+  .replace(/^./, (match) => match.toUpperCase())
+
 const questions = [
   {
     type: 'list',
@@ -85,6 +93,38 @@ const questions = [
     message: answers => `Register the ${answers.type} globally?`,
     default: false,
     when: answers => answers.type !== 'view' && answers.type !== 'store',
+  },
+  {
+    type: 'confirm',
+    name: 'routes',
+    message: 'Do you want to generate a route?',
+    default: false,
+    group: 'view',
+    when: answers => answers.type === 'view',
+  },
+  {
+    type: 'input',
+    name: 'routePath',
+    message: 'Route path?',
+    default: answers => `/${toKebabCase(answers.name)}`,
+    group: 'view',
+    when: answers => answers.routes,
+  },
+  {
+    type: 'input',
+    name: 'routeName',
+    message: 'Route name?',
+    default: answers => answers.name,
+    group: 'view',
+    when: answers => answers.routes,
+  },
+  {
+    type: 'input',
+    name: 'routeTitle',
+    message: 'Page/View title?',
+    default: answers => toTitleCase(answers.name),
+    group: 'view',
+    when: answers => answers.routes,
   },
 ]
 
