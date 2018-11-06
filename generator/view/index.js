@@ -38,6 +38,29 @@ module.exports = (api, options, rootOptions) => {
     
     fs.writeFileSync(indexFilePath, indexFileContent, { encoding: 'utf8' })
     
+    // If user want to generate a route
+    if(options.routes) {
+      const routesFilePath = api.resolve('./src/router/routes.js')
+      let routesFileContent = fs.readFileSync(routesFilePath, { encoding: 'utf8' })
+
+      routesFileContent = routesFileContent
+      .replace(/(\} from \'\.\.\/views\')/, (
+`  ${options.name},
+} from '../views'`
+      ))
+      .replace(/export default \[/, (
+      `export default [
+  {
+    path: '${options.routePath}',
+    name: '${options.routeName}',
+    component: ${options.name},
+    meta: {
+      title: '${options.routeTitle}',
+    },
+  },`))
+    
+      fs.writeFileSync(routesFilePath, routesFileContent, { encoding: 'utf8' })
+    }
   });
 
 }
