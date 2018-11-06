@@ -79,6 +79,13 @@ const questions = [
     validate: input => !!input,
     when: answers => answers.type === 'filter',
   },
+  {
+    type: 'confirm',
+    name: 'global',
+    message: answers => `Register the ${answers.type} globally?`,
+    default: false,
+    when: answers => answers.type !== 'view' && answers.type !== 'store',
+  },
 ]
 
 module.exports  = api => {
