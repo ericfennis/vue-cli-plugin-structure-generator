@@ -21,4 +21,11 @@ module.exports = (api, options, rootOptions, opts) => {
     }
     require('./view')(api, options, rootOptions)
   }
+
+  if (options.type === 'store' || options.store) {
+    if(options.store) {
+      options.name = options.store;
+    }
+    require('./store')(api, options, rootOptions)
+  }
 }

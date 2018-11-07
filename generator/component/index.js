@@ -44,6 +44,7 @@ module.exports = (api, options, rootOptions) => {
   ${options.name},`
     ))
     fs.writeFileSync(indexFilePath, indexFileContent, { encoding: 'utf8' })
+
     // Inject globals file
     if(options.global) {
       const globalFilePath = api.resolve('./src/components/_globals.js')
@@ -54,6 +55,7 @@ module.exports = (api, options, rootOptions) => {
   ${options.name},`
       ))
       fs.writeFileSync(globalFilePath, globalFileContent, { encoding: 'utf8' })
+      
     }
   });
 
