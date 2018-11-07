@@ -1,3 +1,5 @@
+const _ = require('lodash/string');
+
 const toKebabCase = String => String
   .replace(/(?<!^)([A-Z][a-z]|(?<=[a-z])[A-Z])/g, '-$1')
   .toLowerCase()
@@ -106,7 +108,7 @@ const questions = [
     type: 'input',
     name: 'routePath',
     message: 'Route path?',
-    default: answers => `/${toKebabCase(answers.name)}`,
+    default: answers => `/${_.kebabCase(answers.name)}`,
     group: 'view',
     when: answers => answers.routes,
   },
@@ -114,7 +116,7 @@ const questions = [
     type: 'input',
     name: 'routeName',
     message: 'Route name?',
-    default: answers => answers.name,
+    default: answers => _.camelCase(answers.name),
     group: 'view',
     when: answers => answers.routes,
   },
@@ -122,7 +124,7 @@ const questions = [
     type: 'input',
     name: 'routeTitle',
     message: 'Page/View title?',
-    default: answers => toTitleCase(answers.name),
+    default: answers => _.startCase(_.toLower(answers.name)),
     group: 'view',
     when: answers => answers.routes,
   },

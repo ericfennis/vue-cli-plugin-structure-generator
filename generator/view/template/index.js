@@ -1,3 +1,3 @@
-import <%= name %> from './<%= name %>.vue';
+import <%= name.pascalCase %> from './<%= name.pascalCase %>.vue';
 
-export default <%= name %>;
+export default <%= name.pascalCase %>;

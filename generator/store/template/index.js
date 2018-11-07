@@ -1,3 +1,3 @@
-import <%= name %> from './<%= name %>';
+import <%= name.camelCase %> from './<%= name.camelCase %>';
 
-export default <%= name %>;
+export default <%= name.camelCase %>;

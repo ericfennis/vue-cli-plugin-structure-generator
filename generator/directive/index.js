@@ -1,10 +1,10 @@
 const fs = require('fs')
-
+  
 module.exports = (api, options, rootOptions) => {
 
   // List template files
   const files = {
-    [`./src/directives/${options.name}.js`]: `./template/directive.js`,
+    [`./src/directives/${options.name.kebabCase}.js`]: `./template/directive.js`,
   }
 
   // Render template
@@ -13,21 +13,13 @@ module.exports = (api, options, rootOptions) => {
   })
 
   // Import template
-  const importDirective =`import ${options.name} from \'./${options.name}\';`
-
+  const importDirective =`import ${options.name.camelCase} from \'./${options.name.kebabCase}\';`
+  
   // Inject imports
   try {
     api.injectImports('src/directives/index.js', importDirective)
   } catch (e) {
     console.error(`Couldn't add '${importDirective}' to: (./src/directives/index.js)`)
-  }
-
-  if(options.global) {
-    try {
-      api.injectImports('src/directives/_globals.js', importDirective)
-    } catch (e) {
-      console.error(`Couldn't add '${importDirective}' to: (./src/directives/index.js)`)
-    }
   }
 
   // Inject exports
@@ -38,7 +30,7 @@ module.exports = (api, options, rootOptions) => {
 
     indexFileContent = indexFileContent.replace(/export {/, (
       `export {
-  ${options.name},`
+  ${options.name.camelCase},`
     ))
     fs.writeFileSync(indexFilePath, indexFileContent, { encoding: 'utf8' })
 
@@ -47,9 +39,14 @@ module.exports = (api, options, rootOptions) => {
       const globalFilePath = api.resolve('./src/directives/_globals.js')
       let globalFileContent = fs.readFileSync(globalFilePath, { encoding: 'utf8' })
   
-      globalFileContent = globalFileContent.replace(/const directives = {/, (
+      globalFileContent = globalFileContent
+      .replace(/} from \'\.\';/, (
+`  ${options.name.camelCase},
+} from '.'`
+      ))
+      .replace(/const directives = {/, (
         `const directives = {
-  ${options.name},`
+  ${options.name.camelCase},`
       ))
       fs.writeFileSync(globalFilePath, globalFileContent, { encoding: 'utf8' })
       

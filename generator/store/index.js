@@ -4,8 +4,8 @@ module.exports = (api, options, rootOptions) => {
 
   // List template files
   const files = {
-    [`./src/store/modules/${options.name}/index.js`]: `./template/index.js`,
-    [`./src/store/modules/${options.name}/${options.name}.js`]: `./template/store.js`
+    [`./src/store/modules/${options.name.camelCase}/index.js`]: `./template/index.js`,
+    [`./src/store/modules/${options.name.camelCase}/${options.name.camelCase}.js`]: `./template/store.js`
   }
 
   // Render template
@@ -14,7 +14,7 @@ module.exports = (api, options, rootOptions) => {
   })
 
   // Import template
-  const importStore =`import ${options.name} from \'./${options.name}\';`
+  const importStore =`import ${options.name.camelCase} from \'./${options.name.camelCase}\';`
 
   // Inject imports
   try {
@@ -32,7 +32,7 @@ module.exports = (api, options, rootOptions) => {
     
     indexFileContent = indexFileContent.replace(/export {/, (
       `export {
-  ${options.name},`
+  ${options.name.camelCase},`
     ))
     fs.writeFileSync(indexFilePath, indexFileContent, { encoding: 'utf8' })
 

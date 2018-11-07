@@ -3,6 +3,6 @@
 
 <template>
   <div>
-    <h1><%= name %></h1>
+    <h1><%= name.pascalCase %></h1>
   </div>
 </template>

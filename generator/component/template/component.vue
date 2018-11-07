@@ -1,11 +1,8 @@
-<style src="./<%= name %>.scss" lang="scss"></style>
-<script src="./<%= name %>.js"></script>
+<style src="./<%= name.pascalCase %>.scss" lang="scss"></style>
+<script src="./<%= name.pascalCase %>.js"></script>
 
 <template>
   <div>
-    <h3><%= name %> Component</h3>
-    <div>
-      <icon name="vue"/>
-    </div>
+    <h3><%= name.pascalCase %> Component</h3>
   </div>
 </template>

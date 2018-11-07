@@ -1,4 +1,4 @@
-const namespace = '<%= name %>';
+const namespace = '<%= name.camelCase %>';
 
 export const MUTATION = `${namespace}/mutation`;
 

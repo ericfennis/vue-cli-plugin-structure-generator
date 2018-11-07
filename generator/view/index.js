@@ -4,10 +4,10 @@ module.exports = (api, options, rootOptions) => {
 
   // List template files
   const files = {
-    [`./src/views/${options.name}/index.js`]: `./template/index.js`,
-    [`./src/views/${options.name}/${options.name}.js`]: `./template/view.js`,
-    [`./src/views/${options.name}/${options.name}.vue`]: `./template/view.vue`,
-    [`./src/views/${options.name}/${options.name}.scss`]: `./template/view.scss`
+    [`./src/views/${options.name.pascalCase}/index.js`]: `./template/index.js`,
+    [`./src/views/${options.name.pascalCase}/${options.name.pascalCase}.js`]: `./template/view.js`,
+    [`./src/views/${options.name.pascalCase}/${options.name.pascalCase}.vue`]: `./template/view.vue`,
+    [`./src/views/${options.name.pascalCase}/${options.name.pascalCase}.scss`]: `./template/view.scss`
   }
 
   // Render template
@@ -16,7 +16,7 @@ module.exports = (api, options, rootOptions) => {
   })
 
   // Import template
-  const importComponent =`import ${options.name} from \'./${options.name}\';`
+  const importComponent =`import ${options.name.pascalCase} from \'./${options.name.pascalCase}\';`
 
   // Inject imports
   try {
@@ -33,7 +33,7 @@ module.exports = (api, options, rootOptions) => {
 
     indexFileContent = indexFileContent.replace(/export {/, (
       `export {
-  ${options.name},`
+  ${options.name.pascalCase},`
     ))
     
     fs.writeFileSync(indexFilePath, indexFileContent, { encoding: 'utf8' })
@@ -45,7 +45,7 @@ module.exports = (api, options, rootOptions) => {
 
       routesFileContent = routesFileContent
       .replace(/(\} from \'\.\.\/views\')/, (
-`  ${options.name},
+`  ${options.name.pascalCase},
 } from '../views'`
       ))
       .replace(/export default \[/, (
@@ -53,7 +53,7 @@ module.exports = (api, options, rootOptions) => {
   {
     path: '${options.routePath}',
     name: '${options.routeName}',
-    component: ${options.name},
+    component: ${options.name.pascalCase},
     meta: {
       title: '${options.routeTitle}',
     },

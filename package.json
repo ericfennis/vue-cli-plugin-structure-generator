@@ -3,7 +3,7 @@
   "description": "Vue CLI Structure ADD-ON to generate Components, views, stores, directives, filters and mixins",
   "author": "Eric Fennis <ericfennis>",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.4.0",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
   "homepage": "https://github.com/ericfennis/vue-cli-plugin-structure-generator#readme",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
   }
 }
