@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-module.exports = (api, options, rootOptions) => {
+module.exports = (api, options) => {
 
   // List template files
   const files = {
@@ -45,7 +45,7 @@ module.exports = (api, options, rootOptions) => {
       globalFileContent = globalFileContent
       .replace(/} from \'\.\';/, (
 `  ${options.name.pascalCase},
-} from '.'`
+} from '.';`
       ))
       .replace(/const components = {/, (
         `const components = {

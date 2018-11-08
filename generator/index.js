@@ -7,7 +7,7 @@ const getNamings = string => ({
  kebabCase: _.kebabCase(string),
 })
 
-module.exports = (api, options, rootOptions, opts) => {
+module.exports = (api, options) => {
 
   if(api.invoking) {
     api.extendPackage({
@@ -23,7 +23,7 @@ module.exports = (api, options, rootOptions, opts) => {
     }
     //Set namings
     options.name = getNamings(options.name);
-    require('./component')(api, options, rootOptions)
+    require('./component')(api, options)
   }
 
   if (options.type === 'view' || options.view) {
@@ -32,7 +32,7 @@ module.exports = (api, options, rootOptions, opts) => {
     }
     //Set namings
     options.name = getNamings(options.name);
-    require('./view')(api, options, rootOptions)
+    require('./view')(api, options)
   }
 
   if (options.type === 'store' || options.store) {
@@ -41,7 +41,16 @@ module.exports = (api, options, rootOptions, opts) => {
     }
     //Set namings
     options.name = getNamings(options.name);
-    require('./store')(api, options, rootOptions)
+    require('./store')(api, options)
+  }
+
+  if (options.type === 'mixin' || options.mixin) {
+    if(options.mixin) {
+      options.name = options.mixin;
+    }
+    //Set namings
+    options.name = getNamings(options.name);
+    require('./mixin')(api, options)
   }
 
   if (options.type === 'directive' || options.directive) {
@@ -50,7 +59,16 @@ module.exports = (api, options, rootOptions, opts) => {
     }
     //Set namings
     options.name = getNamings(options.name);
-    require('./directive')(api, options, rootOptions)
+    require('./directive')(api, options)
+  }
+
+  if (options.type === 'filter' || options.filter) {
+    if(options.filter) {
+      options.name = options.filter;
+    }
+    //Set namings
+    options.name = getNamings(options.name);
+    require('./filter')(api, options)
   }
   
 }

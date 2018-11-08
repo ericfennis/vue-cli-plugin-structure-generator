@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-module.exports = (api, options, rootOptions) => {
+module.exports = (api, options) => {
 
   // List template files
   const files = {

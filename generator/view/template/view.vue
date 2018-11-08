@@ -1,5 +1,5 @@
-<style src="./<%= name %>.scss" lang="scss"></style>
-<script src="./<%= name %>.js"></script>
+<style src="./<%= name.pascalCase %>.scss" lang="scss"></style>
+<script src="./<%= name.pascalCase %>.js"></script>
 
 <template>
   <div>

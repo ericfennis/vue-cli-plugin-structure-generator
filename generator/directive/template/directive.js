@@ -1,17 +1,17 @@
 export default {
-  bind(el, binding, vnode) {
-    
+  bind(/* el, binding */) {
+    //
   },
-  inserted(el, binding, vnode) {
-    
+  inserted(/* el, binding */) {
+    //
   },
-  updated(el, binding, vnode) {
-    
+  updated(/* el, binding */) {
+    //
   },
-  componentUpdated(el, binding, vnode) {
-    
+  componentUpdated(/* el, binding */) {
+    //
   },
-  unbind(el, binding, vnode) {
-    
+  unbind(/* el, binding */) {
+    //
   },
 };

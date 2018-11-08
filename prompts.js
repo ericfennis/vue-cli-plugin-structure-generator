@@ -1,13 +1,5 @@
 const _ = require('lodash/string');
 
-const toKebabCase = String => String
-  .replace(/(?<!^)([A-Z][a-z]|(?<=[a-z])[A-Z])/g, '-$1')
-  .toLowerCase()
-
-const toTitleCase = String => String
-.replace(/(?<!^)([A-Z][a-z]|(?<=[a-z])[A-Z])/g, ' $1')
-  .replace(/^./, (match) => match.toUpperCase())
-
 const questions = [
   {
     type: 'list',
