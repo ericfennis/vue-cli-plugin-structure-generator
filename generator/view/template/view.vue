@@ -1,4 +1,4 @@
-<style src="./<%= name.pascalCase %>.scss" lang="scss"></style>
+<style src="./<%= name.pascalCase %>.scss" lang="scss" scoped></style>
 <script src="./<%= name.pascalCase %>.js"></script>
 
 <template>
