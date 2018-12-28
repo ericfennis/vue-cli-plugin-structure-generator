@@ -1,14 +1,16 @@
-const namespace = '<%= name.camelCase %>';
-
-export const MUTATION = `${namespace}/mutation`;
+export const types = {
+  MUTATION: 'mutation',
+};
 
 export default {
   state: {
     value: null,
   },
-  getters: {},
+  getters: {
+    [types.MUTATION]: state => state.value,
+  },
   mutations: {
-    [MUTATION](state, value) {
+    [types.MUTATION](state, value) {
       state.value = value;
     },
   },
