@@ -2,7 +2,7 @@
 <script src="./<%= name.pascalCase %>.js"></script>
 
 <template>
-  <div>
+  <div class="<%= name.kebabCase %>">
     <h1><%= name.pascalCase %></h1>
   </div>
 </template>
