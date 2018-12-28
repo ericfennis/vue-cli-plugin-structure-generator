@@ -122,7 +122,7 @@ const questions = [
   },
 ]
 
-module.exports  = api => {
+module.exports = api => {
   if(api.scripts.hasOwnProperty('make')) {
     return questions;
   }

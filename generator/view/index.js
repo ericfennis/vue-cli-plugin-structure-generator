@@ -15,49 +15,27 @@ module.exports = (api, options) => {
     ...options,
   })
 
-  // Import template
-  const importComponent =`import ${options.name.pascalCase} from \'./${options.name.pascalCase}\';`
-
-  // Inject imports
-  try {
-    api.injectImports('src/views/index.js', importComponent)
-  } catch (e) {
-    console.error(`Couldn't add '${importComponent}' to: (./src/views/index.js)`)
-  }
-
   // Inject exports
   api.onCreateComplete(() => {
+
     // Inject index file
     const indexFilePath = api.resolve('./src/views/index.js')
     let indexFileContent = fs.readFileSync(indexFilePath, { encoding: 'utf8' })
 
-    indexFileContent = indexFileContent.replace(/export {/, (
-      `export {
-  ${options.name.pascalCase},`
-    ))
-    
+    indexFileContent = `export { default as ${options.name.pascalCase} } from \'./${options.name.pascalCase}\';\n`+indexFileContent;
+
     fs.writeFileSync(indexFilePath, indexFileContent, { encoding: 'utf8' })
-    
+
     // If user want to generate a route
     if(options.routes) {
       const routesFilePath = api.resolve('./src/router/routes.js')
       let routesFileContent = fs.readFileSync(routesFilePath, { encoding: 'utf8' })
 
       routesFileContent = routesFileContent
-      .replace(/(\} from \'\.\.\/views\')/, (
-`  ${options.name.pascalCase},
-} from '../views'`
-      ))
+      .replace(/(\} from \'@\/views\')/, (`\t${options.name.pascalCase},\n} from \'@/views\'`))
       .replace(/export default \[/, (
-      `export default [
-  {
-    path: '${options.routePath}',
-    name: '${options.routeName}',
-    component: ${options.name.pascalCase},
-    meta: {
-      title: '${options.routeTitle}',
-    },
-  },`))
+        `export default [\t{\t\tpath: '${options.routePath}',\t\tname: '${options.routeName}',\t\tcomponent: ${options.name.pascalCase},\t\tmeta: {\t\t\ttitle: '${options.routeTitle}',\t\t},\t},`
+      ))
     
       fs.writeFileSync(routesFilePath, routesFileContent, { encoding: 'utf8' })
     }
