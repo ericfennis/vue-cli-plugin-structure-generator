@@ -1,4 +1,10 @@
-<p align=center><img width="410" src="https://user-images.githubusercontent.com/11825403/47913201-848e1000-de9b-11e8-8c51-8d269bdf4ca1.png" alt="Vue Structure Logo"></p>
+<p align=center><img width="410" src="https://user-images.githubusercontent.com/11825403/47913201-848e1000-de9b-11e8-8c51-8d269bdf4ca1.png" alt="Vue Structure Logo">
+<br/>
+  [![](https://img.shields.io/npm/dm/localeval.svg?style=popout)](https://www.npmjs.com/package/vue-cli-plugin-structure-generator)
+  ![](https://img.shields.io/github/license/ericfennis/vue-cli-plugin-structure-generator.svg)
+  ![](https://img.shields.io/github/issues/ericfennis/vue-cli-plugin-structure-generator.svg)
+  [![](https://img.shields.io/github/release-date/SubtitleEdit/subtitleedit.svg?style=popout)](https://github.com/ericfennis/vue-cli-plugin-structure-generator)
+</p>
 
 # Vue CLI Structure Generator
 A Vue CLI Plugin Add-on for [Vue CLI Plugin Structure](https://github.com/ericfennis/vue-cli-plugin-structure) to generate components, views (opt. routes), filters, directives and mixins. 
