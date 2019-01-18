@@ -1,7 +1,8 @@
-import StructureGenerator from './components/StructureGenerator'
+import StructureGeneratorTask from './components/StructureGeneratorTask'
+import StructureGeneratorView from './components/StructureGeneratorView'
 
-ClientAddonApi.component('org.vue.webpack.vue-cli-plugin-structure-generator', StructureGenerator)
+ClientAddonApi.component('org.vue.structure.generator', StructureGeneratorTask)
 
-ClientAddonApi.addRoutes('org.vue.webpack', [
-  { path: '/generator', name: 'org.vue.webpack.routes.test', component: TestView }
+ClientAddonApi.addRoutes('org.vue.structure.generator', [
+  { path: '/generator', name: 'org.vue.structure.generator.routes.test', component: StructureGeneratorView }
 ])

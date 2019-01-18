@@ -1,3 +1,3 @@
 export default {
-  name: 'StructureGeneratorTask',
+  name: 'StructureGeneratorView',
 };

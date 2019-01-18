@@ -1,1 +1,1 @@
-export { default } from './StructureGeneratorTask.vue';
+export { default } from './StructureGeneratorView.vue';
