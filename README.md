@@ -13,7 +13,7 @@ A Vue CLI Plugin Add-on for [Vue CLI Plugin Structure](https://github.com/ericfe
 ## Getting Started with Structure Generator
 ``` bash
 # Add Generator in your vue cli project
-vue add structure generator
+vue add structure-generator
 ```
 ``` bash
 # Start using
