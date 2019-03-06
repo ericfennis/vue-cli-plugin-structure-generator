@@ -12,7 +12,7 @@ module.exports = (api, options) => {
   if(api.invoking) {
     api.extendPackage({
       scripts: {
-        make: 'vue invoke vue-cli-plugin-structure-generator'
+        make: 'vue invoke structure-generator'
       }
     })
   }
