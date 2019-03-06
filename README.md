@@ -1,7 +1,4 @@
-
-<p align=center><img width="410" src="https://user-images.githubusercontent.com/11825403/47913201-848e1000-de9b-11e8-8c51-8d269bdf4ca1.png" alt="Vue Structure Logo">
-<br/>
-</p>
+<p align=center><img width="410" src="https://ericfennis.github.io/vue-cli-plugin-structure/logo-text.svg" alt="Vue Structure Logo"></p>
 
 [![](https://img.shields.io/npm/dm/localeval.svg?style=popout)](https://www.npmjs.com/package/vue-cli-plugin-structure-generator)
   ![](https://img.shields.io/github/license/ericfennis/vue-cli-plugin-structure-generator.svg)
@@ -13,7 +10,7 @@ A Vue CLI Plugin Add-on for [Vue CLI Plugin Structure](https://github.com/ericfe
 ## Getting Started with Structure Generator
 ``` bash
 # Add Generator in your vue cli project
-vue add structure generator
+vue add structure-generator
 ```
 ``` bash
 # Start using

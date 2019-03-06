@@ -34,7 +34,7 @@ module.exports = (api, options) => {
       routesFileContent = routesFileContent
       .replace(/(\} from \'@\/views\')/, (`\t${options.name.pascalCase},\n} from \'@/views\'`))
       .replace(/export default \[/, (
-        `export default [\t{\t\tpath: '${options.routePath}',\t\tname: '${options.routeName}',\t\tcomponent: ${options.name.pascalCase},\t\tmeta: {\t\t\ttitle: '${options.routeTitle}',\t\t},\t},`
+        `export default [\n  {\n    path: '${options.routePath}',\n    name: '${options.routeName}',\n    component: ${options.name.pascalCase},\n    meta: {\n      title: '${options.routeTitle}',\n    },\n  },`
       ))
     
       fs.writeFileSync(routesFilePath, routesFileContent, { encoding: 'utf8' })
