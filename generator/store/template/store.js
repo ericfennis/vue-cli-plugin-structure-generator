@@ -3,6 +3,7 @@ export const types = {
 };
 
 export default {
+  namespaced: true,
   state: {
     value: null,
   },
