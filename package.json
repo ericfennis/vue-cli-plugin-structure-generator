@@ -3,7 +3,7 @@
   "description": "Vue CLI Structure ADD-ON to generate Components, views, stores, directives, filters and mixins",
   "author": "Eric Fennis <ericfennis>",
   "license": "MIT",
-  "version": "0.5.2",
+  "version": "0.5.4",
   "main": "index.js",
   "repository": {
     "type": "git",
