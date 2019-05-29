@@ -18,26 +18,27 @@ module.exports = (api, options) => {
   // Inject exports
   api.onCreateComplete(() => {
     // Inject index file
-    const indexFilePath = api.resolve('./src/components/index.js')
-
-    if (indexFilePath) {
-      let indexFileContent = fs.readFileSync(indexFilePath, { encoding: 'utf8' })
-
-      indexFileContent = `export { default as ${options.name.pascalCase} } from \'./${options.name.pascalCase}\';\n`+indexFileContent;
-
-      fs.writeFileSync(indexFilePath, indexFileContent, { encoding: 'utf8' })
-
-      // Inject globals file
-      if(options.global) {
-        const globalFilePath = api.resolve('./src/components/_globals.js'),
-              globalFileContent = fs.readFileSync(globalFilePath, { encoding: 'utf8' })
-                .replace(/} from \'\.\';/, (`  ${options.name.pascalCase},\n} from '.';`))
-                .replace(/const components = {/, (`const components = {\n\t${options.name.pascalCase},`))
-
-        fs.writeFileSync(globalFilePath, globalFileContent, { encoding: 'utf8' })
+    try {
+      const indexFilePath = api.resolve('./src/components/index.js')
+      if (indexFilePath) {
+        let indexFileContent = fs.readFileSync(indexFilePath, { encoding: 'utf8' })
+  
+        indexFileContent = `export { default as ${options.name.pascalCase} } from \'./${options.name.pascalCase}\';\n`+indexFileContent;
+  
+        fs.writeFileSync(indexFilePath, indexFileContent, { encoding: 'utf8' })
+  
+        // Inject globals file
+        if(options.global) {
+          const globalFilePath = api.resolve('./src/components/_globals.js'),
+                globalFileContent = fs.readFileSync(globalFilePath, { encoding: 'utf8' })
+                  .replace(/} from \'\.\';/, (`  ${options.name.pascalCase},\n} from '.';`))
+                  .replace(/const components = {/, (`const components = {\n\t${options.name.pascalCase},`))
+  
+          fs.writeFileSync(globalFilePath, globalFileContent, { encoding: 'utf8' })
+        }
       }
+    } catch (error) {
+      console.log('No Index file in folder.');
     }
-    
   });
-
 }
