@@ -4,10 +4,10 @@ module.exports = (api, options) => {
 
   // List template files
   const files = {
-    [`./src/views/${options.name.pascalCase}/index.js`]: `./template/index.js`,
-    [`./src/views/${options.name.pascalCase}/${options.name.pascalCase}.js`]: `./template/view.js`,
-    [`./src/views/${options.name.pascalCase}/${options.name.pascalCase}.vue`]: `./template/view.vue`,
-    [`./src/views/${options.name.pascalCase}/${options.name.pascalCase}.scss`]: `./template/view.scss`
+    [`./src${options.path}/${options.name.pascalCase}/index.js`]: `./template/index.js`,
+    [`./src${options.path}/${options.name.pascalCase}/${options.name.pascalCase}.js`]: `./template/view.js`,
+    [`./src${options.path}/${options.name.pascalCase}/${options.name.pascalCase}.vue`]: `./template/view.vue`,
+    [`./src${options.path}/${options.name.pascalCase}/${options.name.pascalCase}.scss`]: `./template/view.scss`
   }
 
   // Render template
